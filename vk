@@ -1,14 +1,11 @@
 import json as JSON
 import vk_api
 import re
-from bs4 import BeautifulSoup
 import requests
 from urllib.request import urlopen
-
 vk_session = vk_api.VkApi('login', 'pass')
 vk_session.auth()
 vk = vk_session.get_api()
-
 i = 0
 groups_file = open('groups.txt', 'r+')
 y = groups_file.readlines()
@@ -26,8 +23,6 @@ while i < len(y):
         u = JSON.dumps(gruop)
         t = len(JSON.loads(u).get('items'))
 
-
-        # global1()
         def file():
             try:
                 test = open('test.txt', 'r+')
