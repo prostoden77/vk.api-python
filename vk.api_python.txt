@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import requests
 from urllib.request import urlopen
 
-vk_session = vk_api.VkApi('bkaan071@gmail.com', 'wss81lv9w')
+vk_session = vk_api.VkApi('login', 'pass')
 vk_session.auth()
 vk = vk_session.get_api()
 
@@ -13,15 +13,15 @@ i = 0
 groups_file = open('groups.txt', 'r+')
 y = groups_file.readlines()
 e = 0
-gender = input("кого парсим Ж или М ? если Ж введите 1 если М введите 2:  ")
+gender = input("ГЄГ®ГЈГ® ГЇГ Г°Г±ГЁГ¬ Г† ГЁГ«ГЁ ГЊ ? ГҐГ±Г«ГЁ Г† ГўГўГҐГ¤ГЁГІГҐ 1 ГҐГ±Г«ГЁ ГЊ ГўГўГҐГ¤ГЁГІГҐ 2:  ")
 gender=int(gender)
-depth = input('сколько постов просматривать на стене? введите число :  ')
+depth = input('Г±ГЄГ®Г«ГјГЄГ® ГЇГ®Г±ГІГ®Гў ГЇГ°Г®Г±Г¬Г ГІГ°ГЁГўГ ГІГј Г­Г  Г±ГІГҐГ­ГҐ? ГўГўГҐГ¤ГЁГІГҐ Г·ГЁГ±Г«Г® :  ')
 depth=int(depth)
 while i < len(y):
     try:
         p = '-' + str(y[i])
         newstr = p.replace("\n", "")
-        print('проверяем айди группы' + str(newstr))
+        print('ГЇГ°Г®ГўГҐГ°ГїГҐГ¬ Г Г©Г¤ГЁ ГЈГ°ГіГЇГЇГ»' + str(newstr))
         gruop = vk.wall.get(owner_id=newstr, count=depth)
         u = JSON.dumps(gruop)
         t = len(JSON.loads(u).get('items'))
@@ -34,11 +34,11 @@ while i < len(y):
                 x = test.readlines()
                 p = 'https://vk.com/id' + str(user[0]['id']) + '\n'
                 if p in x:
-                    print("пользователь с id  " + str(id) + "  уже есть в списке")
+                    print("ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гј Г± id  " + str(id) + "  ГіГ¦ГҐ ГҐГ±ГІГј Гў Г±ГЇГЁГ±ГЄГҐ")
                 else:
                     test = open('test.txt', 'a')
                     test.write(p)
-                    print(p + "успешно записан в фаил")
+                    print(p + "ГіГ±ГЇГҐГёГ­Г® Г§Г ГЇГЁГ±Г Г­ Гў ГґГ ГЁГ«")
                 test.close()
             except:
                 a = 4
